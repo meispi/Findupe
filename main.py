@@ -36,11 +36,22 @@ src = 'path/to/images_dir'
 des = 'path/to/any_dir'
 images = [f for f in os.listdir(src)]
 check = [False]*len(images)
+flag = True
+flag2 = True
 
 for img1 in images:
     if (not check[images.index(img1)]) and images.index(img1) != len(images)-1:
-        shutil.copy(src + img1, des + 'Original')
+        #shutil.copy(src + img1, des + 'Original')
         for img2 in images[images.index(img1)+1:]:
             if isdupe(cv2.imread(src+img1, 0), cv2.imread(src+img2, 0)):
+                flag2 = False
+                if flag:
+                    shutil.copy(src+img1, des+'Dupes')
+                    flag = False
                 shutil.copy(src+img2, des+'Dupes')
                 check[images.index(img2)] = True
+    if flag2:
+        shutil.copy(src + img1, des + 'Original')
+    flag = True
+    flag2 = True
+    
