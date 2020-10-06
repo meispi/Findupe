@@ -32,7 +32,7 @@ def isdupe(img1, img2):
         return True
 
 
-src = 'path/to/images_dir'
+src = 'path/to/images_dir' # read How to use section in the readme to assign values to these variables
 des = 'path/to/any_dir'
 images = [f for f in os.listdir(src)]
 check = [False]*len(images)
