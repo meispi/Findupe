@@ -6,7 +6,7 @@ On line `35` and `36` you can see `src` and `des` variables. These are the sourc
 respectively.
 You have to put the correct source and destination of your directories. (In windows you have to escape `\` so your path will look like `C:\\path\\to\\dir\\`).
 Put an extra `/` or `\\` at the end depending on the OS you are using because the code traverses the files **inside** the directory.
-Make sure to have two directories `Dupes` and `Original` in the `des`
+Make sure to have two directories `Dupes` and `Original` in the `des` directory.
  
 # Issues
 The time complexity of finding and separating images is not the best, so I have to work on that.
