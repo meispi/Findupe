@@ -17,6 +17,7 @@ def isdupe(img1, img2):
         mean2 = np.mean(rimg2)
         str1 = ''
         str2 = ''
+        cnt = 0
         for i in range(8):
             for j in range(8):
                 if rimg1[i][j] - mean1 > 0:
@@ -27,9 +28,10 @@ def isdupe(img1, img2):
                     str2 += '1'
                 else:
                     str2 += '0'
+                if str1[len(str1)-1] != str2[len(str2)-1]:
+                    cnt += 1
 
-        val = (bin(int(str1, 2)^int(str2, 2))).count('1')
-        if val >= 5:
+        if cnt >= 5:
             return False
         else:
             return True
