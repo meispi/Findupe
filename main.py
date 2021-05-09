@@ -30,6 +30,9 @@ args = parser.parse_args()
 if args.path:
     src = args.path 
 
+else:
+    parser.print_help()
+    exit(0)
 try:
     images = sorted([f for f in os.listdir(src)])
     check = [False]*len(images)
