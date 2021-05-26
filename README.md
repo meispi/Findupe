@@ -1,4 +1,4 @@
-# Image-Processing
+# Findupe
 This is an ML-based project which separates duplicate images from a bunch of images.
 
 # How to use
