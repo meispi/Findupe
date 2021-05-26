@@ -1,5 +1,5 @@
 # Image-Processing
-This is an ML-based project which separates duplicate images from a bunch of images. [Still under development]
+This is an ML-based project which separates duplicate images from a bunch of images.
 
 # How to use
 ```
