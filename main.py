@@ -8,7 +8,7 @@ from skimage.metrics import structural_similarity as ssim
 imgdict = {}
 
 def isStrictdupe(rimg1,rimg2):
-    if str(np.array(rimg2).flatten()) in imgdict:
+    if str(np.array(rimg2).ravel()) in imgdict:
         return True
     else:
         return False
@@ -52,7 +52,7 @@ try:
             cntorg += 1
             temp1 = cv2.imread(os.path.join(src,img1), 0)
             rimg1 = cv2.resize(temp1, (8,8), interpolation=cv2.INTER_AREA)
-            imgdict[str(np.array(rimg1).flatten())] = 1
+            imgdict[str(np.array(rimg1).ravel())] = 1
 
             for img2 in images[i+1:]:
                 temp2 = cv2.imread(os.path.join(src,img2), 0)
