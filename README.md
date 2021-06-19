@@ -17,6 +17,7 @@ e.g. :
 ```
 python main.py -p D:\Python_Projects\images
 ```
+![image](https://user-images.githubusercontent.com/33330452/122634314-173a5680-d0fb-11eb-8075-34859f1126ce.png)
 
  
 # Issues
