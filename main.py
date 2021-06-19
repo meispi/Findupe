@@ -67,8 +67,11 @@ try:
                         shutil.copy(os.path.join(src,img2), dupes)
                         cntdupe += 1
                         check[str(img2)] = True
-            
+
+        print("[INFO] images processed {}/{}".format(i+1,len(images)), end='')
+        print(f"\t dupes: {cntdupe}, org: {cntorg}")
         i += 1
+        
 
     print(f'No. of dupes found: {cntdupe}')
     print(f'No. of originals found: {cntorg}')
