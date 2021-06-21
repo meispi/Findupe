@@ -17,6 +17,6 @@ e.g. :
 ```
 python main.py -p /path/to/dir
 ```
-![image](https://user-images.githubusercontent.com/33330452/122634314-173a5680-d0fb-11eb-8075-34859f1126ce.png)
+![image](https://user-images.githubusercontent.com/33330452/122761114-8067c880-d2b9-11eb-8da2-0438f5ec5ced.png)
 
  
