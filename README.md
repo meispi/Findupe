@@ -15,10 +15,8 @@ The program will create 2 directories, inside the current working directory, `Du
 
 e.g. :
 ```
-python main.py -p D:\Python_Projects\images
+python main.py -p /path/to/dir
 ```
 ![image](https://user-images.githubusercontent.com/33330452/122634314-173a5680-d0fb-11eb-8075-34859f1126ce.png)
 
  
-# Issues
-The time complexity of finding and separating images is not the best, so I have to work on that.
