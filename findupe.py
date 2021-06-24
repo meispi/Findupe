@@ -83,7 +83,7 @@ try:
         print(f'No. of originals found: {cntorg}')
     
     except FileExistsError:
-        print("There already exists 2 folders called Dupes and Original in this directory, please make sure to remove them and try again")
+        print("[FileExistsError]: There already exists 2 folders called Dupes and Original in this directory, please make sure to remove them and try again")
 
 except FileNotFoundError:
-    exit('The specified directory wasn\'t found, please provide the full path!')
+    exit('[FileNotFoundError]: The specified directory wasn\'t found, please provide the full path!')
