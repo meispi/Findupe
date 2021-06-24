@@ -52,6 +52,7 @@ try:
 
         cntdupe, cntorg = 0, 0
 
+        print("[INFO] Processing Images...")
         for (i,img1) in enumerate(images):
             if (not check[img1]) and i != len(images)-1:
                 shutil.copy(os.path.join(src,img1), org)
@@ -75,7 +76,7 @@ try:
                             cntdupe += 1
                             check[str(img2)] = True
 
-            print("[INFO] images processed {}/{}".format(i+1,len(images)), end='')
+            print("[INFO] Images Processed {}/{}".format(i+1,len(images)), end='')
             print(f"\t dupes: {cntdupe}, org: {cntorg}")
         
 
