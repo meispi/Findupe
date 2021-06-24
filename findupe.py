@@ -12,12 +12,6 @@ def flat(a):
         x += str(i)
     return x
 
-def isStrictdupe(rimg1,rimg2):
-    if flat(np.array(rimg2)) in imgdict:
-        return True
-    else:
-        return False
-
 def isSim(rimg1, rimg2):
     (score, diff) = ssim(rimg1,rimg2,full=True)
     if score >= 0.9:
@@ -39,7 +33,7 @@ else:
     parser.print_help()
     exit(0)
 try:
-    images = sorted([f for f in os.listdir(src)])
+    images = [f for f in os.listdir(src)]
     check = {}
     for img in images:
         check[str(img)] = False
@@ -50,34 +44,42 @@ try:
         os.mkdir(dupes,0o666)
         os.mkdir(org,0o666)
 
-        cntdupe, cntorg = 0, 0
+        cntdupe, cntorg, cnt = 0, 0, 1
 
         print("[INFO] Processing Images...")
-        for (i,img1) in enumerate(images):
-            if (not check[img1]) and i != len(images)-1:
-                shutil.copy(os.path.join(src,img1), org)
-                cntorg += 1
-                temp1 = cv2.imread(os.path.join(src,img1), 0)
-                rimg1 = cv2.resize(temp1, (8,8), interpolation=cv2.INTER_AREA)
-                if args.strict:
-                    imgdict[flat(np.array(rimg1))] = 1
+        if args.strict:
+            for (i,img) in enumerate(images):
+                temp = cv2.imread(os.path.join(src,img), 0)
+                rimg = cv2.resize(temp, (8,8), interpolation=cv2.INTER_AREA)
+                if flat(np.array(rimg)) in imgdict:
+                    cntdupe += 1
+                    shutil.copy(os.path.join(src,img), dupes)
+                else:
+                    imgdict[flat(np.array(rimg))] = 1
+                    cntorg += 1
+                    shutil.copy(os.path.join(src,img), org)
 
-                for img2 in images[i+1:]:
-                    temp2 = cv2.imread(os.path.join(src,img2), 0)
-                    rimg2 = cv2.resize(temp2, (8,8), interpolation=cv2.INTER_AREA)
-                    if args.strict:
-                        if isStrictdupe(rimg1, rimg2):
-                            shutil.copy(os.path.join(src,img2), dupes)
-                            cntdupe += 1
-                            check[str(img2)] = True
-                    else:
+                print("[INFO] Images Processed {}/{}".format(i+1,len(images)), end='')
+                print(f"\t dupes: {cntdupe}, org: {cntorg}")
+        else:
+            for (i,img1) in enumerate(images):
+                if (not check[img1]) and i != len(images)-1:
+                    shutil.copy(os.path.join(src,img1), org)
+                    cntorg += 1
+                    temp1 = cv2.imread(os.path.join(src,img1), 0)
+                    rimg1 = cv2.resize(temp1, (8,8), interpolation=cv2.INTER_AREA)
+
+                    for img2 in images[i+1:]:
+                        temp2 = cv2.imread(os.path.join(src,img2), 0)
+                        rimg2 = cv2.resize(temp2, (8,8), interpolation=cv2.INTER_AREA)
+
                         if isSim(rimg1, rimg2):
                             shutil.copy(os.path.join(src,img2), dupes)
                             cntdupe += 1
                             check[str(img2)] = True
 
-            print("[INFO] Images Processed {}/{}".format(i+1,len(images)), end='')
-            print(f"\t dupes: {cntdupe}, org: {cntorg}")
+                print("[INFO] Images Processed {}/{}".format(i+1,len(images)), end='')
+                print(f"\t dupes: {cntdupe}, org: {cntorg}")
         
 
         print(f'No. of dupes found: {cntdupe}')
