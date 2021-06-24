@@ -25,6 +25,7 @@ The program will create 2 directories, inside the current working directory, `Du
 `-s` is an optional flag (no argument required) which will result in separating only the exact copies of images (if 2 images are similar looking but not exactly the same, this will treat them as 2 different images).
 
 e.g. :
+
 For separating similar looking images
 ```
 $ python3 findupe.py -p /path/to/dir
