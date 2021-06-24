@@ -1,18 +1,18 @@
 # Findupe
 This is an ML-based project which separates duplicate images from a bunch of images.
 
-# Installation
+## Installation
 
 Make sure you have python3 installed on your system. You can get it from [here](https://www.python.org/downloads/)
 
-## Ubuntu
+### Ubuntu
 ```
 $ git clone https://github.com/meispi/Findupe
 $ cd Findupe
 $ python3 setup.py install
 ```
 
-# How to use
+## How to use
 ```
 optional arguments:
   -h, --help  show this help message and exit
