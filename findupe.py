@@ -45,9 +45,13 @@ try:
         check[str(img)] = False
     des = os.getcwd()
     dupes = os.path.join(des,"Dupes")
-    os.mkdir(dupes,0o666)
     org = os.path.join(des,"Original")
-    os.mkdir(org,0o666)
+    try:
+        os.mkdir(dupes,0o666)
+        os.mkdir(org,0o666)
+
+    except FileExistsError:
+        print("There already exists 2 folders called Dupes and Original in this directory, please make sure to remove them and try again")
 
     cntdupe, cntorg = 0, 0
 

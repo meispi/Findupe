@@ -20,13 +20,13 @@ optional arguments:
   -s          strict (only exact copies will be detected)
 ```
 Here `-p` flag is necessary followed by the full path of the directory which contains the images.
-The program will create 2 directories, inside the current working directory, `Dupes` and `Original`. `Dupes` will contain all the duplicates of an image (if there are n similar looking images then it will contain n-1 of them). `Original` will contain uniques images.
+The program will create 2 directories, inside the current working directory, `Dupes` and `Original`(so make sure you don't have a directories/folders of same name). `Dupes` will contain all the duplicates of an image (if there are n similar looking images then it will contain n-1 of them). `Original` will contain uniques images.
 
 `-s` is an optional flag (no argument required) which will result in separating only the exact copies of images (if 2 images are similar looking but not exactly the same, this will treat them as 2 different images).
 
 e.g. :
 ```
-$ python main.py -p /path/to/dir
+$ python3 findupe.py -p /path/to/dir
 ```
 ![image](https://user-images.githubusercontent.com/33330452/122761114-8067c880-d2b9-11eb-8da2-0438f5ec5ced.png)
 
