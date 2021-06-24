@@ -3,13 +3,13 @@ This is an ML-based project which separates duplicate images from a bunch of ima
 
 ## Installation
 
-Make sure you have python3 installed on your system. You can get it from [here](https://www.python.org/downloads/)
+Make sure you have python (or python3) installed on your system. You can get it from [here](https://www.python.org/downloads/)
 
 ### Ubuntu
 ```
 $ git clone https://github.com/meispi/Findupe
 $ cd Findupe
-$ python3 setup.py install
+$ python setup.py install
 ```
 
 ## How to use
@@ -28,9 +28,9 @@ e.g. :
 
 For separating similar looking images
 ```
-$ python3 findupe.py -p /path/to/dir
+$ python findupe.py -p /path/to/dir
 ```
 For separating exact same images
 ```
-$ python3 findupe.py -p /path/to/dir -s
+$ python findupe.py -p /path/to/dir -s
 ```
