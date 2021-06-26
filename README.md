@@ -1,11 +1,10 @@
 # Findupe
-This is an ML-based project which separates duplicate images from a bunch of images.
+A tool that helps you separate similar looking images from a bunch of images. It has 2 modes `similar` (default) and `strict`, in `similar` mode if 2 images are `90%` or more similar on the basis of [structural similarity index](https://medium.com/srm-mic/all-about-structural-similarity-index-ssim-theory-code-in-pytorch-6551b455541e) then they are considered to be duplicates. In `strict` mode, if 2 images are exact copy of each other only then they are considered to be duplicates.
 
 ## Installation
 
-Make sure you have python (or python3) installed on your system. You can get it from [here](https://www.python.org/downloads/)
+Make sure you have python (or python3) installed on your system and have it set as an environment variable. You can get it from [here](https://www.python.org/downloads/)
 
-### Ubuntu
 ```
 $ git clone https://github.com/meispi/Findupe
 $ cd Findupe
